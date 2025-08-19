@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Recipe Card - Chocolate Cake</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="page">
+        <article class="recipe-card" data-prep-minutes="45">
+            <header class="recipe-header">
+                <h1 class="recipe-title">Chocolate Cake</h1>
+                <div class="meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Prep Time</span>
+                        <time class="prep-time" datetime="PT45M">45 min</time>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Servings</span>
+                        <span class="servings">8 slices</span>
+                    </div>
+                    <div class="meta-item hide-on-mobile">
+                        <span class="meta-label">Difficulty</span>
+                        <span class="difficulty">Easy</span>
+                    </div>
+                </div>
+            </header>
+
+            <figure class="hero">
+                <img src="images/chocolate-cake.jpg" alt="Chocolate cake on a plate" />
+                <figcaption>Rich and moist chocolate cake</figcaption>
+            </figure>
+
+            <div class="controls">
+                <button id="toggleIngredients" class="btn secondary" aria-expanded="false" aria-controls="ingredients">Show Ingredients</button>
+                <button id="toggleSteps" class="btn secondary" aria-expanded="true" aria-controls="steps">Hide Steps</button>
+            </div>
+
+            <section id="ingredients" class="panel collapsed" aria-hidden="true" role="region" aria-label="Ingredients list">
+                <h2>Ingredients</h2>
+                <ul class="ingredients-list">
+                    <li>1 and 1/2 cups all-purpose flour</li>
+                    <li>1 cup granulated sugar</li>
+                    <li>1/2 cup cocoa powder (unsweetened)</li>
+                    <li>1 tsp baking soda</li>
+                    <li>1/2 tsp baking powder</li>
+                    <li>1/2 tsp salt</li>
+                    <li>1 cup buttermilk</li>
+                    <li>1/2 cup vegetable oil</li>
+                    <li>2 large eggs</li>
+                    <li>1 tsp vanilla extract</li>
+                </ul>
+            </section>
+
+            <section id="steps" class="panel" aria-hidden="false" role="region" aria-label="Step by step instructions">
+                <h2>Steps</h2>
+                <ol class="step-list">
+                    <li class="step" data-step-index="0">Preheat oven to 350°F (175°C). Grease and flour a 9-inch pan.</li>
+                    <li class="step" data-step-index="1">In a bowl, whisk flour, sugar, cocoa, baking soda, baking powder, and salt.</li>
+                    <li class="step" data-step-index="2">Add buttermilk, oil, eggs, and vanilla. Mix until smooth.</li>
+                    <li class="step" data-step-index="3">Pour batter into the prepared pan.</li>
+                    <li class="step" data-step-index="4">Bake for 30–35 minutes or until a toothpick comes out clean.</li>
+                    <li class="step" data-step-index="5">Cool completely before slicing. Enjoy!</li>
+                </ol>
+            </section>
+
+            <div class="action-bar">
+                <div class="progress" aria-label="Progress through steps" aria-live="polite">
+                    <div id="progressBar" class="progress-bar" style="width: 0%"></div>
+                </div>
+                <div class="timer">
+                    <span class="timer-label">Timer</span>
+                    <span id="timerDisplay" class="timer-display">45:00</span>
+                </div>
+                <div class="action-buttons">
+                    <button id="startBtn" class="btn primary">Start Cooking</button>
+                    <button id="nextBtn" class="btn" disabled>Next</button>
+                    <button id="resetBtn" class="btn ghost" disabled>Reset</button>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
+
+
